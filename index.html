@@ -1,59 +1,142 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Minimercado Tchê</title>
-  </head>
-  <body>
-    <!-- Menu Superior -->
-    <header>
-      <h1>Minimercado Tchê</h1>
-      <nav>
-        <a href="index.html">Início</a>
-        <span>|</span>
-        <a href="contato.html">Contato</a>
-        <span>|</span>
-        <a href="sobre.html">Sobre</a>
-      </nav>
-    </header>
 
-    <!-- Menu de categorias e serviços -->
-    <aside>
-      <nav>
-        <h3>Categorias</h3>
-        <ul>
-          <li><a href="frutas_verduras.html">Frutas e Verduras</a></li>
-          <li><a href="alimentos.html">Alimentos não Perecíveis</a></li>
-          <li><a href="higiene_limpeza.html">Higiene e Limpeza</a></li>
-        </ul>
-        <h3>Serviços</h3>
-        <ul>
-          <li><a href="servicos.html">Serviços</a></li>
-        </ul>
-      </nav>
-    </aside>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Minimercado Tchê</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome para ícones -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- CSS personalizado -->
+  <link rel="stylesheet" href="assets/main.css" />
 
-    <!-- Conteúdo da página -->
-    <section>
-      <h2>Bem-vindo ao Minimercado Tchê!</h2>
-      <p>
-        Aqui você encontra produtos de qualidade com os <br />
-        melhores preços e com a entrega mais rapida da cidade
-      </p>
-      <p>
-        Escolha uma categoria no menu ao lado e venha conferir nossos produtos
-      </p>
-    </section>
+  <script src="assets/js/script.js" defer></script>
+</head>
 
-    <!-- Rodapé -->
-    <footer>
-      <hr width="500" align="left" />
-      <p>© 2025 Minimercado Tchê</p>
-      <p>
-        Contato: <a href="minimercado@tche.com">minimercado@tche.com</a> |
-        Telefone: (51) 99999-5555
-      </p>
-    </footer>
-  </body>
+<body class="d-flex flex-column min-vh-100">
+  <!-- Menu Superior -->
+  <header class="sticky-top">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success">
+      <div class="container">
+        <a class="navbar-brand d-flex align-items-center" href="#">
+          <img src="/assets/img/cuia.png" alt="Logo" width="40" height="40" class="me-2" />
+          <span class="fw-bold">Minimercado Tchê</span>
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link active" href="index.html"><i class="fas fa-home me-1"></i>Inicio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contato.html"><i class="fas fa-envelope me-1"></i>Contato</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="sobre.html"><i class="fas fa-info-circle me-1"></i>Sobre</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-warning fw-bold" href="cadastro.html"><i
+                  class="fas fa-user-plus me-1"></i>Cadastre-se</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Conteúdo Principal -->
+  <main class="flex-grow-1 my-4">
+    <div class="container">
+      <div class="row">
+        <!-- Menu de categorias e serviços -->
+        <div class="col-lg-2 mb-4">
+          <div class="card shadow-sm">
+            <div class="card-header bg-light">
+              <h4 class="mb-0"><i class="fas fa-list me-2"></i>Categorias</h4>
+            </div>
+            <div class="card-body p-0">
+              <div class="list-group list-group-flush">
+                <a href="frutas_verduras.html" class="list-group-item list-group-item-action">
+                  <i class="fas fa-apple-alt me-2"></i>Frutas e Verduras
+                </a>
+                <a href="alimentos.html" class="list-group-item list-group-item-action">
+                  <i class="fas fa-box-open me-2"></i>Não Perecíveis
+                </a>
+                <a href="higiene_limpeza.html" class="list-group-item list-group-item-action">
+                  <i class="fas fa-broom me-2"></i>Higiene e Limpeza
+                </a>
+              </div>
+            </div>
+
+
+          </div>
+        </div>
+
+        <!-- Conteúdo da página -->
+        <div class="col-lg-10">
+          <div class="card shadow-sm">
+            <div class="card-body">
+              <section class="text-center py-4">
+                <h1 class="display-5 text-success mb-4">Bem-vindo ao Minimercado Tchê!</h1>
+                <div class="row justify-content-center">
+                  <div class="col-md-8">
+                    <p class="lead">
+                      Aqui você encontra produtos de qualidade com os melhores preços e com a entrega mais rápida da
+                      cidade.
+                    </p>
+                    <p class="mb-4">Escolha uma categoria no menu ao lado e venha conferir nossos produtos.</p>
+                    <img src="https://placehold.co/600x300?text=Promoções+do+Dia" alt="Promoções"
+                      class="img-fluid rounded mb-4">
+                    <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+                      <a href="cadastro.html" class="btn btn-warning btn-lg px-4 gap-3">Cadastre-se para ofertas
+                        exclusivas</a>
+                    </div>
+                  </div>
+                </div>
+              </section>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Rodapé -->
+  <footer class="bg-dark text-white py-4 mt-auto">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 text-center text-md-start">
+          <h5 class="mb-3">Minimercado Tchê</h5>
+          <p class="mb-0">Sua conveniência gaúcha com os melhores produtos e serviços.</p>
+        </div>
+        <div class="col-md-6 text-center text-md-end">
+          <h5 class="mb-3">Contato</h5>
+          <p class="mb-1">
+            <i class="fas fa-envelope me-2"></i>
+            <a href="mailto:minimercado@tche.com" class="text-white">minimercado@tche.com</a>
+          </p>
+          <p class="mb-0">
+            <i class="fas fa-phone me-2"></i>(51) 99999-5555
+          </p>
+        </div>
+      </div>
+      <hr class="my-3">
+      <div class="text-center">
+        <p class="mb-0">© 2025 Minimercado Tchê. Todos os direitos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS Bundle com Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Seu JS personalizado -->
+  <script src="assets/js/script.js" defer></script>
+</body>
+
 </html>

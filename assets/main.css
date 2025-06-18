@@ -1,0 +1,79 @@
+/* Estilos gerais */
+body {
+  background-color: #f8f9fa;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Estilos para o menu lateral */
+.lateral-categorias {
+  background-color: #f8f9fa;
+  border-radius: 5px;
+}
+
+/* Efeitos hover para links */
+.list-group-item-action:hover {
+  background-color: #e9ecef;
+  color: #198754;
+}
+
+/* Estilo para cards */
+.card {
+  border: none;
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+/* Estilo para botões */
+.btn-warning {
+  color: #212529;
+  font-weight: 600;
+}
+
+    .delivery-option {
+      transition: all 0.3s ease;
+      border: 2px solid transparent;
+    }
+
+    .delivery-option:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .delivery-option.selected {
+      border-color: #198754;
+      background-color: rgba(25, 135, 84, 0.05);
+    }
+
+    .delivery-icon {
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      font-size: 1.5rem;
+    }
+
+/* Responsividade para telas pequenas */
+@media (max-width: 768px) {
+  .navbar-brand span {
+    display: none;
+  }
+  
+  .display-5 {
+    font-size: 2rem;
+  }
+}
+
+/* Animação de entrada */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.card-body {
+  animation: fadeIn 0.5s ease-out;
+}
