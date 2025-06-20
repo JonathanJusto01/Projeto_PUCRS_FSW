@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Carrinho - Minimercado Tchê</title>
+    <!-- Meta description para SEO e acessibilidade -->
+    <meta name="description"
+        content="Carrinho de compras do Minimercado Tchê - revise seus produtos antes de finalizar a compra">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Font Awesome para ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <!-- CSS personalizado -->
+    <link rel="stylesheet" href="assets/main.css" />
+</head>
+
+<body class="d-flex flex-column min-vh-100">
+    <!-- Menu Superior - Navegação Principal -->
+    <header class="sticky-top" role="banner">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-success" aria-label="Navegação principal">
+            <div class="container">
+                <!-- Logo com texto alternativo descritivo -->
+                <a class="navbar-brand d-flex align-items-center" href="index.html">
+                    <img src="assets/img/cuia.png"
+                        alt="Logo do Minimercado Tchê - uma cuia de chimarrão tradicional gaúcha" width="40" height="40"
+                        class="me-2" />
+                    <span class="fw-bold">Minimercado Tchê</span>
+                </a>
+
+                <!-- Botão de menu para mobile com aria-label -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-expanded="false" aria-label="Alternar navegação" aria-controls="navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Itens de navegação -->
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html"><i class="fas fa-home me-1"
+                                    aria-hidden="true"></i>Inicio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contato.html"><i class="fas fa-envelope me-1"
+                                    aria-hidden="true"></i>Contato</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="sobre.html"><i class="fas fa-info-circle me-1"
+                                    aria-hidden="true"></i>Sobre</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="login.html"><i class="fas fa-sign-in-alt me-1"
+                                    aria-hidden="true"></i>Entrar</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-warning fw-bold" href="cadastro.html"><i
+                                    class="fas fa-user-plus me-1" aria-hidden="true"></i>Cadastre-se</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link position-relative" href="carrinho.html"
+                                aria-label="Carrinho de compras com 0 itens">
+                                <i class="fas fa-shopping-cart me-1" aria-hidden="true"></i>Carrinho
+                                <span
+                                    class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">0</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Conteúdo Principal -->
+    <main class="flex-grow-1 my-4" role="main">
+        <div class="container">
+            <div class="row">
+                <!-- Menu de categorias - Navegação Secundária -->
+                <div class="col-lg-3 mb-4">
+                    <div class="card shadow-sm">
+                        <div class="card-header bg-light">
+                            <h2 class="mb-0 h4"><i class="fas fa-list me-2" aria-hidden="true"></i>Categorias</h2>
+                        </div>
+                        <div class="card-body p-0">
+                            <div class="list-group list-group-flush" role="list">
+                                <a href="frutas_verduras.html" class="list-group-item list-group-item-action"
+                                    role="listitem">
+                                    <i class="fas fa-apple-alt me-2" aria-hidden="true"></i>Frutas e Verduras
+                                </a>
+                                <a href="alimentos.html" class="list-group-item list-group-item-action" role="listitem">
+                                    <i class="fas fa-box-open me-2" aria-hidden="true"></i>Não Perecíveis
+                                </a>
+                                <a href="higiene_limpeza.html" class="list-group-item list-group-item-action"
+                                    role="listitem">
+                                    <i class="fas fa-broom me-2" aria-hidden="true"></i>Higiene e Limpeza
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Área do Carrinho -->
+                <div class="col-lg-9">
+                    <div class="card shadow-sm mb-4">
+                        <div class="card-body">
+                            <h1 class="display-6 text-success mb-4"><i class="fas fa-shopping-cart me-2"
+                                    aria-hidden="true"></i>Seu Carrinho</h1>
+
+                            <!-- Lista de Produtos - Tabela Acessível -->
+                            <div class="table-responsive">
+                                <table class="table" aria-label="Lista de produtos no carrinho">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col" width="60" class="visually-hidden">Imagem</th>
+                                            <th scope="col">Produto</th>
+                                            <th scope="col" class="text-center">Quantidade</th>
+                                            <th scope="col" class="text-end">Preço Unitário</th>
+                                            <th scope="col" class="text-end">Subtotal</th>
+                                            <th scope="col" width="40" class="visually-hidden">Ações</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <!-- Produto 1 - Tomate -->
+                                        <tr>
+                                            <td>
+                                                <img src="assets/img/tomate.png"
+                                                    alt="Tomate vermelho e suculento orgânico" class="img-thumbnail"
+                                                    width="50">
+                                            </td>
+                                            <td>
+                                                <h3 class="mb-1 h6">Tomate</h3>
+                                                <small class="text-muted">Vermelho e suculento</small>
+                                                <div class="mt-1">
+                                                    <span class="badge bg-success">Orgânico</span>
+                                                </div>
+                                            </td>
+                                            <td class="align-middle text-center">
+                                                <div class="input-group input-group-sm" style="width: 100px;"
+                                                    role="group" aria-label="Alterar quantidade de tomates">
+                                                    <button class="btn btn-outline-success" type="button"
+                                                        aria-label="Reduzir quantidade">
+                                                        <span aria-hidden="true">-</span>
+                                                    </button>
+                                                    <input type="text" class="form-control text-center" value="2"
+                                                        aria-label="Quantidade atual: 2">
+                                                    <button class="btn btn-outline-success" type="button"
+                                                        aria-label="Aumentar quantidade">
+                                                        <span aria-hidden="true">+</span>
+                                                    </button>
+                                                </div>
+                                            </td>
+                                            <td class="align-middle text-end">
+                                                R$ 9,99/kg
+                                            </td>
+                                            <td class="align-middle text-end">
+                                                <strong>R$ 19,98</strong>
+                                            </td>
+                                            <td class="align-middle">
+                                                <button class="btn btn-sm btn-outline-danger"
+                                                    aria-label="Remover tomates do carrinho">
+                                                    <i class="fas fa-trash" aria-hidden="true"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+
+                                        <!-- Produto 2 - Arroz -->
+                                        <tr>
+                                            <td>
+                                                <img src="assets/img/arroz.jpg" alt="Pacote de arroz Tio João 5kg"
+                                                    class="img-thumbnail" width="50">
+                                            </td>
+                                            <td>
+                                                <h3 class="mb-1 h6">Arroz Tio João</h3>
+                                                <small class="text-muted">Tipo 1, pacote 5kg</small>
+                                            </td>
+                                            <td class="align-middle text-center">
+                                                <div class="input-group input-group-sm" style="width: 100px;"
+                                                    role="group" aria-label="Alterar quantidade de arroz">
+                                                    <button class="btn btn-outline-success" type="button"
+                                                        aria-label="Reduzir quantidade">
+                                                        <span aria-hidden="true">-</span>
+                                                    </button>
+                                                    <input type="text" class="form-control text-center" value="1"
+                                                        aria-label="Quantidade atual: 1">
+                                                    <button class="btn btn-outline-success" type="button"
+                                                        aria-label="Aumentar quantidade">
+                                                        <span aria-hidden="true">+</span>
+                                                    </button>
+                                                </div>
+                                            </td>
+                                            <td class="align-middle text-end">
+                                                R$ 36,90
+                                            </td>
+                                            <td class="align-middle text-end">
+                                                <strong>R$ 36,90</strong>
+                                            </td>
+                                            <td class="align-middle">
+                                                <button class="btn btn-sm btn-outline-danger"
+                                                    aria-label="Remover arroz do carrinho">
+                                                    <i class="fas fa-trash" aria-hidden="true"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+
+                                        <!-- Produto 3 - Sabonete -->
+                                        <tr>
+                                            <td>
+                                                <img src="assets/img/sabonete.png"
+                                                    alt="Sabonete líquido com fragrância de erva-doce"
+                                                    class="img-thumbnail" width="50">
+                                            </td>
+                                            <td>
+                                                <h3 class="mb-1 h6">Sabonete Líquido</h3>
+                                                <small class="text-muted">Fragrância de erva-doce</small>
+                                                <div class="mt-1">
+                                                    <span class="badge bg-danger">-20%</span>
+                                                </div>
+                                            </td>
+                                            <td class="align-middle text-center">
+                                                <div class="input-group input-group-sm" style="width: 100px;"
+                                                    role="group" aria-label="Alterar quantidade de sabonete">
+                                                    <button class="btn btn-outline-success" type="button"
+                                                        aria-label="Reduzir quantidade">
+                                                        <span aria-hidden="true">-</span>
+                                                    </button>
+                                                    <input type="text" class="form-control text-center" value="3"
+                                                        aria-label="Quantidade atual: 3">
+                                                    <button class="btn btn-outline-success" type="button"
+                                                        aria-label="Aumentar quantidade">
+                                                        <span aria-hidden="true">+</span>
+                                                    </button>
+                                                </div>
+                                            </td>
+                                            <td class="align-middle text-end">
+                                                <span class="text-decoration-line-through text-muted small">R$
+                                                    3,50</span><br>
+                                                <span>R$ 2,80</span>
+                                            </td>
+                                            <td class="align-middle text-end">
+                                                <strong>R$ 8,40</strong>
+                                            </td>
+                                            <td class="align-middle">
+                                                <button class="btn btn-sm btn-outline-danger"
+                                                    aria-label="Remover sabonete do carrinho">
+                                                    <i class="fas fa-trash" aria-hidden="true"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <!-- Botão Limpar Carrinho -->
+                            <div class="text-end mb-4">
+                                <button class="btn btn-outline-danger" aria-label="Limpar todos os itens do carrinho">
+                                    <i class="fas fa-trash me-2" aria-hidden="true"></i>Limpar Carrinho
+                                </button>
+                            </div>
+
+                            <!-- Opções de Entrega -->
+                            <div class="card shadow-sm mt-4">
+                                <div class="card-header bg-primary text-white">
+                                    <h2 class="h5 mb-0"><i class="fas fa-truck me-2" aria-hidden="true"></i>Opções de
+                                        Entrega</h2>
+                                </div>
+                                <div class="card-body">
+                                    <!-- Radio buttons escondidos para controle do formulário -->
+                                    <input type="radio" name="deliveryType" id="teleEntrega" value="teleEntrega" checked
+                                        style="display: none;">
+                                    <input type="radio" name="deliveryType" id="retiradaLocal" value="retiradaLocal"
+                                        style="display: none;">
+
+                                    <div class="row">
+                                        <div class="col-md-6 mb-3">
+                                            <div class="delivery-option selected" id="deliveryOption" role="button"
+                                                aria-pressed="true" tabindex="0"
+                                                aria-label="Opção de entrega: Tele-Entrega, selecionada">
+                                                <div class="delivery-icon">
+                                                    <i class="fas fa-truck" aria-hidden="true"></i>
+                                                </div>
+                                                <div class="delivery-content">
+                                                    <h3 class="delivery-title h6">Tele-Entrega</h3>
+                                                    <p class="delivery-description">Receba seus produtos em casa</p>
+                                                    <p class="delivery-price">Taxa: R$ 5,90</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 mb-3">
+                                            <div class="delivery-option" id="pickupOption" role="button"
+                                                aria-pressed="false" tabindex="0"
+                                                aria-label="Opção de entrega: Retirada no Local">
+                                                <div class="delivery-icon bg-secondary">
+                                                    <i class="fas fa-store" aria-hidden="true"></i>
+                                                </div>
+                                                <div class="delivery-content">
+                                                    <h3 class="delivery-title h6">Retirada no Local</h3>
+                                                    <p class="delivery-description">Venha buscar em nossa loja</p>
+                                                    <p class="delivery-price">Grátis</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Container para campos de endereço (será escondido para retirada) -->
+                                    <div class="address-fields-container">
+                                        <!-- Campos de Endereço -->
+                                        <div class="tele-entrega-fields">
+                                            <div class="mb-3">
+                                                <label for="deliveryAddress" class="form-label">Endereço
+                                                    Completo</label>
+                                                <input type="text" class="form-control" id="deliveryAddress"
+                                                    placeholder="Rua, número, complemento" aria-required="true">
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6 mb-3">
+                                                    <label for="deliveryCep" class="form-label">CEP</label>
+                                                    <input type="text" class="form-control" id="deliveryCep"
+                                                        placeholder="00000-000" aria-required="true">
+                                                </div>
+                                                <div class="col-md-6 mb-3">
+                                                    <label for="deliveryNote" class="form-label">Referência</label>
+                                                    <input type="text" class="form-control" id="deliveryNote"
+                                                        placeholder="Ponto de referência">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Data e Horário -->
+                                    <div class="row">
+                                        <div class="col-md-6 mb-3">
+                                            <label for="deliveryDate" class="form-label">Data de <span
+                                                    class="delivery-type-text">entrega</span></label>
+                                            <input type="date" class="form-control" id="deliveryDate" min=""
+                                                aria-required="true">
+                                        </div>
+                                        <div class="col-md-6 mb-3">
+                                            <label for="deliveryTime" class="form-label">Horário</label>
+                                            <select class="form-select" id="deliveryTime" aria-required="true">
+                                                <option value="">Selecione...</option>
+                                                <optgroup label="Manhã" class="tele-entrega-option">
+                                                    <option value="08:00-10:00">08:00 - 10:00</option>
+                                                    <option value="10:00-12:00">10:00 - 12:00</option>
+                                                </optgroup>
+                                                <optgroup label="Tarde" class="tele-entrega-option">
+                                                    <option value="13:00-15:00">13:00 - 15:00</option>
+                                                    <option value="15:00-17:00">15:00 - 17:00</option>
+                                                </optgroup>
+                                                <optgroup label="Retirada" class="retirada-option d-none">
+                                                    <option value="09:00-12:00">09:00 - 12:00</option>
+                                                    <option value="14:00-18:00">14:00 - 18:00</option>
+                                                </optgroup>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Resumo do Pedido -->
+                            <div class="row mt-4">
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label for="observacoes" class="form-label">Observações do pedido</label>
+                                        <textarea class="form-control" id="observacoes" rows="3"
+                                            placeholder="Alguma observação especial?"
+                                            aria-label="Campo para observações adicionais sobre o pedido"></textarea>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="card border-success" aria-labelledby="resumoPedidoHeading">
+                                        <div class="card-header bg-light">
+                                            <h3 id="resumoPedidoHeading" class="mb-0 h5">Resumo do Pedido</h3>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="d-flex justify-content-between mb-2">
+                                                <span>Subtotal (3 itens):</span>
+                                                <strong>R$ 65,28</strong>
+                                            </div>
+                                            <div class="d-flex justify-content-between mb-2">
+                                                <span>Taxa de Entrega:</span>
+                                                <strong class="delivery-fee">R$ 5,90</strong>
+                                            </div>
+                                            <div class="d-flex justify-content-between mb-3">
+                                                <span>Desconto:</span>
+                                                <strong class="text-success">-R$ 2,10</strong>
+                                            </div>
+                                            <hr>
+                                            <div class="d-flex justify-content-between fs-5">
+                                                <span class="fw-bold">Total:</span>
+                                                <strong class="text-success">R$ 69,08</strong>
+                                            </div>
+
+                                            <div class="d-grid mt-4">
+                                                <button class="btn btn-success btn-lg" id="confirmSchedule"
+                                                    aria-label="Finalizar compra">
+                                                    <i class="fas fa-credit-card me-2" aria-hidden="true"></i>Finalizar
+                                                    Compra
+                                                </button>
+                                            </div>
+
+                                            <div class="text-center mt-3">
+                                                <small class="text-muted">ou</small><br>
+                                                <a href="index.html" class="btn btn-outline-success"
+                                                    aria-label="Continuar comprando">
+                                                    <i class="fas fa-arrow-left me-2" aria-hidden="true"></i>Continuar
+                                                    Comprando
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Rodapé - Informações adicionais -->
+    <footer class="bg-dark text-white py-4 mt-auto" role="contentinfo">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 text-center text-md-start">
+                    <h2 class="mb-3 h5">Minimercado Tchê</h2>
+                    <p class="mb-0">Sua conveniência gaúcha com os melhores produtos e serviços.</p>
+                </div>
+                <div class="col-md-4 text-center">
+                    <h2 class="mb-3 h5">Horário de Funcionamento</h2>
+                    <p class="mb-1">Seg-Sex: 8h às 20h</p>
+                    <p class="mb-0">Sáb-Dom: 9h às 18h</p>
+                </div>
+                <div class="col-md-4 text-center text-md-end">
+                    <h2 class="mb-3 h5">Contato</h2>
+                    <address>
+                        <p class="mb-1">
+                            <i class="fas fa-envelope me-2" aria-hidden="true"></i>
+                            <a href="mailto:minimercado@tche.com" class="text-white">minimercado@tche.com</a>
+                        </p>
+                        <p class="mb-0"><i class="fas fa-phone me-2" aria-hidden="true"></i>(51) 99999-5555</p>
+                    </address>
+                    <div class="mt-2">
+                        <a href="#" class="text-white me-2" aria-label="Facebook"><i class="fab fa-facebook-f"
+                                aria-hidden="true"></i></a>
+                        <a href="#" class="text-white me-2" aria-label="Instagram"><i class="fab fa-instagram"
+                                aria-hidden="true"></i></a>
+                        <a href="#" class="text-white" aria-label="WhatsApp"><i class="fab fa-whatsapp"
+                                aria-hidden="true"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-3" />
+            <div class="text-center">
+                <p class="mb-0">© 2025 Minimercado Tchê. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle com Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- JavaScript personalizado -->
+    <script src="assets/js/script.js" defer></script>
+</body>
+
+</html>

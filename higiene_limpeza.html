@@ -2,52 +2,79 @@
 <html lang="pt-br">
 
 <head>
+  <!-- Metadados básicos para configuração do documento -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Higiene e Limpeza - Minimercado Tchê</title>
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Font Awesome para ícones -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+
+  <!-- Bootstrap CSS - Framework para layout responsivo -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <!-- Font Awesome - Biblioteca de ícones -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
   <!-- CSS personalizado -->
   <link rel="stylesheet" href="assets/main.css" />
 </head>
 
+
+
 <body class="d-flex flex-column min-vh-100">
-  <!-- Menu Superior -->
-  <header class="sticky-top">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-success">
+
+  <!-- Cabeçalho fixo no topo com ARIA landmarks -->
+  <header class="sticky-top" role="banner" aria-label="Cabeçalho principal">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success" aria-label="Navegação principal">
       <div class="container">
-        <a class="navbar-brand d-flex align-items-center" href="index.html">
-          <img src="/assets/img/cuia.png" alt="Logo" width="40" height="40" class="me-2" />
+        <!-- Logo com texto alternativo descritivo -->
+        <a class="navbar-brand d-flex align-items-center" href="index.html"
+          aria-label="Página inicial do Minimercado Tchê">
+          <img src="assets/img/cuia.png" alt="Logo do Minimercado Tchê - uma cuia gaúcha tradicional" width="40"
+            height="40" class="me-2" />
           <span class="fw-bold">Minimercado Tchê</span>
         </a>
 
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <!-- Botão do menu mobile acessível -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Alternar navegação">
           <span class="navbar-toggler-icon"></span>
         </button>
 
+        <!-- Menu de navegação principal com roles ARIA -->
         <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ms-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="index.html"><i class="fas fa-home me-1"></i>Inicio</a>
+          <ul class="navbar-nav ms-auto" role="menubar">
+            <li class="nav-item" role="none">
+              <a class="nav-link" href="index.html" role="menuitem" aria-label="Ir para página inicial">
+                <i class="fas fa-home me-1" aria-hidden="true"></i>Inicio
+              </a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="contato.html"><i class="fas fa-envelope me-1"></i>Contato</a>
+            <li class="nav-item" role="none">
+              <a class="nav-link" href="contato.html" role="menuitem" aria-label="Ir para página de contato">
+                <i class="fas fa-envelope me-1" aria-hidden="true"></i>Contato
+              </a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="sobre.html"><i class="fas fa-info-circle me-1"></i>Sobre</a>
+            <li class="nav-item" role="none">
+              <a class="nav-link" href="sobre.html" role="menuitem" aria-label="Ir para página sobre o mercado">
+                <i class="fas fa-info-circle me-1" aria-hidden="true"></i>Sobre
+              </a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link text-warning fw-bold" href="cadastro.html"><i
-                  class="fas fa-user-plus me-1"></i>Cadastre-se</a>
+            <li class="nav-item" role="none">
+              <a class="nav-link" href="login.html" role="menuitem" aria-label="Ir para página de login">
+                <i class="fas fa-sign-in-alt me-1" aria-hidden="true"></i>Entrar
+              </a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link position-relative" href="carrinho.html">
-                <i class="fas fa-shopping-cart me-1"></i>Carrinho
-                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                  0
-                </span>
+            <li class="nav-item" role="none">
+              <a class="nav-link text-warning fw-bold" href="cadastro.html" role="menuitem"
+                aria-label="Ir para página de cadastro">
+                <i class="fas fa-user-plus me-1" aria-hidden="true"></i>Cadastre-se
+              </a>
+            </li>
+            <li class="nav-item" role="none">
+              <a class="nav-link position-relative" href="carrinho.html" role="menuitem"
+                aria-label="Carrinho de compras">
+                <i class="fas fa-shopping-cart me-1" aria-hidden="true"></i>Carrinho
+                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+                  aria-live="polite">0</span>
               </a>
             </li>
           </ul>
@@ -56,93 +83,75 @@
     </nav>
   </header>
 
-  <!-- Conteúdo Principal -->
-  <main class="flex-grow-1 my-4">
+  <!-- Conteúdo principal com landmark ARIA -->
+  <main class="flex-grow-1 my-4" id="main-content" aria-label="Produtos de higiene e limpeza">
     <div class="container">
       <div class="row">
-        <!-- Menu de categorias e serviços -->
-        <div class="col-lg-2 mb-4">
+
+        <!-- Seção de navegação secundária -->
+        <div class="col-lg-3 mb-4">
+
+          <!-- Card de Categorias com ARIA -->
           <div class="card shadow-sm">
             <div class="card-header bg-light">
-              <h4 class="mb-0"><i class="fas fa-list me-2"></i>Categorias</h4>
+              <h2 class="h4 mb-0" id="categories-label">
+                <i class="fas fa-list me-2" aria-hidden="true"></i>Categorias
+              </h2>
             </div>
             <div class="card-body p-0">
-              <div class="list-group list-group-flush">
-                <a href="frutas_verduras.html" class="list-group-item list-group-item-action">
-                  <i class="fas fa-apple-alt me-2"></i>Frutas e Verduras
+              <div class="list-group list-group-flush" role="list" aria-labelledby="categories-label">
+                <a href="frutas_verduras.html" class="list-group-item list-group-item-action" role="listitem"
+                  aria-label="Navegar para frutas e verduras">
+                  <i class="fas fa-apple-alt me-2" aria-hidden="true"></i>Frutas e Verduras
                 </a>
-                <a href="alimentos.html" class="list-group-item list-group-item-action">
-                  <i class="fas fa-box-open me-2"></i>Não Perecíveis
+                <a href="alimentos.html" class="list-group-item list-group-item-action" role="listitem"
+                  aria-label="Navegar para produtos não perecíveis">
+                  <i class="fas fa-box-open me-2" aria-hidden="true"></i>Não Perecíveis
                 </a>
-                <a href="higiene_limpeza.html" class="list-group-item list-group-item-action active">
-                  <i class="fas fa-broom me-2"></i>Higiene e Limpeza
+                <a href="higiene_limpeza.html" class="list-group-item list-group-item-action active" role="listitem"
+                  aria-current="page">
+                  <i class="fas fa-broom me-2" aria-hidden="true"></i>Higiene e Limpeza
                 </a>
               </div>
             </div>
-
-
           </div>
 
-          <!-- Card de Opções de Entrega -->
+          <!-- Card de Entrega com ARIA -->
           <div class="card shadow-sm mt-3">
             <div class="card-header bg-primary text-white">
-              <h5 class="mb-0"><i class="fas fa-truck me-2"></i>Opções de Entrega</h5>
+              <h3 class="h5 mb-0" id="delivery-label">
+                <i class="fas fa-truck me-2" aria-hidden="true"></i>Forma de Entrega
+              </h3>
             </div>
-            <div class="card-body p-3">
-              <div class="delivery-option mb-3 p-3 rounded selected" id="deliveryOption">
-                <div class="d-flex align-items-center">
-                  <div class="delivery-icon bg-primary text-white me-3">
-                    <i class="fas fa-truck"></i>
-                  </div>
-                  <div>
-                    <h6 class="mb-1">Entrega em Casa</h6>
-                    <p class="small mb-0">Receba seus produtos em até 48h</p>
-                    <span class="badge bg-success mt-1">Taxa: R$ 5,90</span>
-                  </div>
-                </div>
-              </div>
-
-              <div class="delivery-option p-3 rounded" id="pickupOption">
-                <div class="d-flex align-items-center">
-                  <div class="delivery-icon bg-success text-white me-3">
-                    <i class="fas fa-store"></i>
-                  </div>
-                  <div>
-                    <h6 class="mb-1">Retirar na Loja</h6>
-                    <p class="small mb-0">Pronto em 1h - Sem taxa</p>
-                    <span class="badge bg-success mt-1">Grátis</span>
-                  </div>
-                </div>
-              </div>
-
-              <div class="mt-3">
-                <button class="btn btn-success w-100" id="confirmDeliveryOption">
-                  <i class="fas fa-check-circle me-2"></i>Confirmar
-                </button>
-              </div>
+            <div class="card-body text-center">
+              <p class="mb-3">Consulte as formas de entrega disponíveis no carrinho de compras</p>
+              <a href="carrinho.html" class="btn btn-success w-100" aria-label="Ir para o carrinho de compras">
+                <i class="fas fa-shopping-cart me-2" aria-hidden="true"></i>Ir para o Carrinho
+              </a>
             </div>
           </div>
         </div>
 
-        <!-- Conteúdo da página -->
-        <div class="col-lg-10">
+        <!-- Seção de Produtos -->
+        <div class="col-lg-9">
           <div class="card shadow-sm mb-4">
             <div class="card-body">
-              <h1 class="display-6 text-success mb-4"><i class="fas fa-broom me-2"></i>Produtos de Higiene e Limpeza
+              <h1 class="display-6 text-success mb-4">
+                <i class="fas fa-broom me-2" aria-hidden="true"></i>Produtos de Higiene e Limpeza
               </h1>
               <p class="lead">Tudo para manter sua casa limpa e cheirosa com a melhor qualidade!</p>
 
-              <br>
+              <!-- Lista de produtos com roles ARIA -->
+              <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4" role="list" aria-label="Lista de produtos">
 
-              <!-- Lista de produtos -->
-              <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-                <!-- Produto 1 -->
-                <div class="col">
+                <!-- Produto 1 - Sabonete Líquido -->
+                <div class="col" role="listitem">
                   <div class="card h-100 product-card">
                     <span class="badge bg-danger position-absolute top-0 end-0 m-2">-20%</span>
-                    <img src="assets/img/sabonete.png" class="card-img-top" alt="Sabonete">
+                    <img src="assets/img/sabonete.png" class="card-img-top"
+                      alt="Frasco de sabonete líquido com fragrância de erva-doce" />
                     <div class="card-body">
-                      <h5 class="card-title">Sabonete Líquido</h5>
+                      <h2 class="h5 card-title">Sabonete Líquido</h2>
                       <p class="card-text">Sabonete líquido suave para as mãos, fragrância de erva-doce.</p>
                       <div class="d-flex justify-content-between align-items-center">
                         <div>
@@ -154,22 +163,22 @@
                     </div>
                     <div class="card-footer bg-transparent">
                       <div class="d-grid gap-2">
-                        <button class="btn btn-outline-success btn-sm add-to-cart">
-                          <i class="fas fa-cart-plus me-2"></i>Adicionar
+                        <button class="btn btn-outline-success btn-sm add-to-cart"
+                          aria-label="Adicionar Sabonete Líquido ao carrinho por R$2,80">
+                          <i class="fas fa-cart-plus me-2" aria-hidden="true"></i>Adicionar
                         </button>
                       </div>
                     </div>
                   </div>
                 </div>
 
-
-
-                <!-- Produto 6 -->
-                <div class="col">
+                <!-- Produto 2 - Pasta Dental -->
+                <div class="col" role="listitem">
                   <div class="card h-100 product-card">
-                    <img src="assets/img/cremedental.png" class="card-img-top" alt="Pasta Dental">
+                    <img src="assets/img/cremedental.png" class="card-img-top"
+                      alt="Tubo de pasta dental para proteção contra cáries" />
                     <div class="card-body">
-                      <h5 class="card-title">Pasta Dental</h5>
+                      <h2 class="h5 card-title">Pasta Dental</h2>
                       <p class="card-text">Proteção contra cáries e branqueamento dos dentes.</p>
                       <div class="d-flex justify-content-between align-items-center">
                         <span class="fw-bold text-success">R$ 8,90</span>
@@ -178,20 +187,22 @@
                     </div>
                     <div class="card-footer bg-transparent">
                       <div class="d-grid gap-2">
-                        <button class="btn btn-outline-success btn-sm add-to-cart">
-                          <i class="fas fa-cart-plus me-2"></i>Adicionar
+                        <button class="btn btn-outline-success btn-sm add-to-cart"
+                          aria-label="Adicionar Pasta Dental ao carrinho por R$8,90">
+                          <i class="fas fa-cart-plus me-2" aria-hidden="true"></i>Adicionar
                         </button>
                       </div>
                     </div>
                   </div>
                 </div>
 
-                <!-- Produto 2 -->
-                <div class="col">
+                <!-- Produto 3 - Detergente -->
+                <div class="col" role="listitem">
                   <div class="card h-100 product-card">
-                    <img src="assets/img/detergente.jpg" class="card-img-top" alt="Detergente">
+                    <img src="assets/img/detergente.jpg" class="card-img-top"
+                      alt="Frasco de detergente líquido concentrado" />
                     <div class="card-body">
-                      <h5 class="card-title">Detergente Líquido</h5>
+                      <h2 class="h5 card-title">Detergente Líquido</h2>
                       <p class="card-text">Detergente concentrado, remove gordura com facilidade.</p>
                       <div class="d-flex justify-content-between align-items-center">
                         <span class="fw-bold text-success">R$ 5,00/un</span>
@@ -200,18 +211,15 @@
                     </div>
                     <div class="card-footer bg-transparent">
                       <div class="d-grid gap-2">
-                        <button class="btn btn-outline-success btn-sm add-to-cart">
-                          <i class="fas fa-cart-plus me-2"></i>Adicionar
+                        <button class="btn btn-outline-success btn-sm add-to-cart"
+                          aria-label="Adicionar Detergente Líquido ao carrinho por R$5,00">
+                          <i class="fas fa-cart-plus me-2" aria-hidden="true"></i>Adicionar
                         </button>
                       </div>
                     </div>
                   </div>
                 </div>
-
-
               </div>
-
-
             </div>
           </div>
         </div>
@@ -219,36 +227,41 @@
     </div>
   </main>
 
-  <!-- Rodapé -->
-  <footer class="bg-dark text-white py-4 mt-auto">
+  <!-- Rodapé com landmark ARIA -->
+  <footer class="bg-dark text-white py-4 mt-auto" role="contentinfo" aria-label="Rodapé">
     <div class="container">
       <div class="row">
         <div class="col-md-4 text-center text-md-start">
-          <h5 class="mb-3">Minimercado Tchê</h5>
+          <h3 class="h5 mb-3">Minimercado Tchê</h3>
           <p class="mb-0">Sua conveniência gaúcha com os melhores produtos e serviços.</p>
         </div>
         <div class="col-md-4 text-center">
-          <h5 class="mb-3">Horário de Funcionamento</h5>
+          <h3 class="h5 mb-3">Horário de Funcionamento</h3>
           <p class="mb-1">Seg-Sex: 8h às 20h</p>
           <p class="mb-0">Sáb-Dom: 9h às 18h</p>
         </div>
         <div class="col-md-4 text-center text-md-end">
-          <h5 class="mb-3">Contato</h5>
+          <h3 class="h5 mb-3">Contato</h3>
           <p class="mb-1">
-            <i class="fas fa-envelope me-2"></i>
-            <a href="mailto:minimercado@tche.com" class="text-white">minimercado@tche.com</a>
+            <i class="fas fa-envelope me-2" aria-hidden="true"></i>
+            <a href="mailto:minimercado@tche.com" class="text-white"
+              aria-label="Enviar email para minimercado@tche.com">minimercado@tche.com</a>
           </p>
-          <p class="mb-0">
-            <i class="fas fa-phone me-2"></i>(51) 99999-5555
-          </p>
+          <p class="mb-0"><i class="fas fa-phone me-2" aria-hidden="true"></i>(51) 99999-5555</p>
           <div class="mt-2">
-            <a href="#" class="text-white me-2"><i class="fab fa-facebook-f"></i></a>
-            <a href="#" class="text-white me-2"><i class="fab fa-instagram"></i></a>
-            <a href="#" class="text-white"><i class="fab fa-whatsapp"></i></a>
+            <a href="#" class="text-white me-2" aria-label="Facebook do Minimercado Tchê">
+              <i class="fab fa-facebook-f" aria-hidden="true"></i>
+            </a>
+            <a href="#" class="text-white me-2" aria-label="Instagram do Minimercado Tchê">
+              <i class="fab fa-instagram" aria-hidden="true"></i>
+            </a>
+            <a href="#" class="text-white" aria-label="WhatsApp do Minimercado Tchê">
+              <i class="fab fa-whatsapp" aria-hidden="true"></i>
+            </a>
           </div>
         </div>
       </div>
-      <hr class="my-3">
+      <hr class="my-3" />
       <div class="text-center">
         <p class="mb-0">© 2025 Minimercado Tchê. Todos os direitos reservados.</p>
       </div>
@@ -257,8 +270,10 @@
 
   <!-- Bootstrap JS Bundle com Popper -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-  <!-- Seu JS personalizado -->
+
+  <!-- JavaScript personalizado -->
   <script src="assets/js/script.js" defer></script>
+
 
 </body>
 
